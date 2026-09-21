@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>Tulis — 02.15yn</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .field{ margin-bottom: 18px; }
+  .field label{ display:block; font-size:0.85rem; font-weight:700; color:var(--text-muted); margin-bottom:6px; }
+  .field input, .field textarea, .field select{
+    width:100%; background:var(--bg-card); border:none; box-shadow: inset 0 2px 4px rgba(74,68,96,0.08);
+    color:var(--text); padding:12px 14px; border-radius:14px; font-family:inherit; font-size:0.95rem;
+  }
+  .field textarea{ min-height:180px; resize:vertical; line-height:1.5; }
+  .row{ display:flex; gap:14px; }
+  .row .field{ flex:1; }
+  .card{ background:var(--bg-elevated); border-radius:26px; padding:26px; margin-bottom:28px; box-shadow: 0 6px 0 var(--line-strong), 0 14px 26px rgba(74,68,96,0.08); }
+  .card h2{ font-family:'Baloo 2',sans-serif; font-weight:700; font-size:1.15rem; margin:0 0 18px; color:var(--text); }
+  .preview-item{ display:flex; justify-content:space-between; align-items:center; padding:10px 14px; margin-bottom:8px; background:var(--bg-card); border-radius:14px; font-size:0.92rem; font-weight:700; }
+  .preview-item button{ background:#fff; border:none; color:var(--pink-shadow); cursor:pointer; font-size:0.8rem; font-weight:700; padding:6px 12px; border-radius:10px; box-shadow: 0 3px 0 var(--line-strong); }
+  .preview-item button:hover{ transform: translateY(-1px); }
+  .note{ color:var(--text-faint); font-size:0.85rem; font-weight:600; }
+  .status{ font-size:0.85rem; color:var(--pink-shadow); font-weight:700; min-height:1.2em; margin-top:10px; }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html">0<span>2.15</span>yn</a>
+    <span class="note">halaman tulis (khusus kamu)</span>
+  </div>
+</nav>
+
+<div class="wrap" style="padding-top:40px; padding-bottom:80px;">
+
+  <h1 style="font-family:'Fraunces',serif; font-weight:500; font-size:1.6rem;">Tulis cerita</h1>
+  <p class="note" style="margin-bottom:32px;">Isi form di bawah, lalu unduh file barunya di paling bawah dan upload ke GitHub buat menggantikan <code>js/data.js</code> yang lama. Progres kamu otomatis tersimpan di browser ini walau belum diunduh.</p>
+
+  <div class="card">
+    <h2>Info profil</h2>
+    <div class="field">
+      <label>Tagline (di bawah "02:15" di halaman utama)</label>
+      <input type="text" id="siteTagline">
+    </div>
+    <div class="field">
+      <label>Tentang kamu</label>
+      <textarea id="siteAbout" style="min-height:100px;"></textarea>
+    </div>
+    <button class="btn btn-ghost" onclick="saveSiteInfo()">Simpan info</button>
+  </div>
+
+  <div class="card">
+    <h2>Pilih cerita</h2>
+    <div class="field">
+      <label>Cerita mana yang mau ditambah babnya?</label>
+      <select id="storySelect" onchange="onStorySelectChange()"></select>
+    </div>
+    <div id="newStoryFields" style="display:none;">
+      <div class="field">
+        <label>Judul cerita baru</label>
+        <input type="text" id="newStoryTitle" placeholder="Judul novel kamu">
+      </div>
+      <div class="field">
+        <label>Sinopsis singkat</label>
+        <input type="text" id="newStoryDesc" placeholder="Satu-dua kalimat tentang ceritanya">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Tambah bab baru</h2>
+    <div class="row">
+      <div class="field">
+        <label>Label bab (contoh: Prolog, 1, 2, Bonus)</label>
+        <input type="text" id="chLabel" placeholder="1">
+      </div>
+      <div class="field">
+        <label>Tanggal</label>
+        <input type="text" id="chDate" placeholder="10 Sep 2026">
+      </div>
+    </div>
+    <div class="field">
+      <label>Judul bab</label>
+      <input type="text" id="chTitle" placeholder="Bab Satu">
+    </div>
+    <div class="field">
+      <label>Isi cerita — paste dari Word juga bisa, langsung ke sini</label>
+      <textarea id="chContent" placeholder="Tulis atau paste isi bab di sini. Pisahkan paragraf dengan baris kosong."></textarea>
+    </div>
+    <button class="btn btn-mint" onclick="addChapter()">+ Tambah bab ini</button>
+    <div class="status" id="addStatus"></div>
+  </div>
+
+  <div class="card">
+    <h2>Bab yang sudah ada</h2>
+    <div id="chapterPreview"><p class="note">Pilih cerita dulu di atas.</p></div>
+  </div>
+
+  <div class="card">
+    <h2>Selesai menulis?</h2>
+    <p class="note">Klik tombol ini, lalu upload file yang terunduh ke GitHub untuk menggantikan file <code>js/data.js</code> yang lama supaya web-nya ter-update.</p>
+    <button class="btn" onclick="downloadData()">⬇ Unduh data.js</button>
+    <button class="btn btn-ghost" onclick="resetDraft()" style="margin-left:10px;">Reset ke versi terakhir yang diunduh</button>
+  </div>
+
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

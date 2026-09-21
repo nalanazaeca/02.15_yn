@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>02.15yn</title>
+<meta name="description" content="Cerita fiksi bersambung oleh 02.15yn.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <div class="brand">0<span>2.15</span>yn</div>
+    <div class="navlinks">
+      <a href="#cerita">Cerita</a>
+      <a href="#tentang">Tentang</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-visual" aria-hidden="true">
+    <svg viewBox="0 0 1200 460" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#cbb8f0"/>
+          <stop offset="55%" stop-color="#f3c6d8"/>
+          <stop offset="100%" stop-color="#ffd9b8"/>
+        </linearGradient>
+        <linearGradient id="reflectGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+          <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+        </linearGradient>
+        <radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+          <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <rect x="0" y="0" width="1200" height="460" fill="url(#skyGrad)"/>
+
+      <g fill="#ffffff">
+        <circle cx="70" cy="46" r="2" opacity="0.9"/>
+        <circle cx="140" cy="98" r="1.4" opacity="0.7"/>
+        <circle cx="210" cy="52" r="2.2" opacity="0.85"/>
+        <circle cx="260" cy="130" r="1.4" opacity="0.6"/>
+        <circle cx="320" cy="70" r="1.8" opacity="0.8"/>
+        <circle cx="30" cy="150" r="1.4" opacity="0.55"/>
+        <circle cx="400" cy="40" r="1.4" opacity="0.75"/>
+        <circle cx="470" cy="110" r="2" opacity="0.85"/>
+        <circle cx="540" cy="60" r="1.4" opacity="0.65"/>
+        <circle cx="600" cy="130" r="1.8" opacity="0.75"/>
+        <circle cx="670" cy="45" r="1.4" opacity="0.7"/>
+        <circle cx="720" cy="95" r="2.2" opacity="0.85"/>
+        <circle cx="780" cy="150" r="1.4" opacity="0.55"/>
+        <circle cx="950" cy="55" r="1.8" opacity="0.8"/>
+        <circle cx="1010" cy="120" r="1.4" opacity="0.65"/>
+        <circle cx="1070" cy="70" r="2" opacity="0.85"/>
+        <circle cx="1130" cy="140" r="1.4" opacity="0.6"/>
+        <circle cx="1160" cy="90" r="1.8" opacity="0.75"/>
+        <circle cx="1100" cy="40" r="1.4" opacity="0.65"/>
+        <circle cx="900" cy="150" r="1.4" opacity="0.55"/>
+      </g>
+
+      <circle cx="862" cy="72" r="16" fill="url(#starGlow)"/>
+      <circle cx="862" cy="72" r="4" fill="#ffffff"/>
+
+      <rect x="828" y="240" width="68" height="220" fill="url(#reflectGrad)"/>
+
+      <path d="M0,236 Q 300,222 600,238 T 1200,232 L1200,460 L0,460 Z" fill="#8fe3d9"/>
+      <path d="M0,254 Q 300,242 600,256 T 1200,250" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.5"/>
+      <path d="M0,282 Q 300,272 600,284 T 1200,278" stroke="#ffffff" stroke-width="1.6" fill="none" opacity="0.4"/>
+      <path d="M0,320 Q 300,312 600,322 T 1200,316" stroke="#ffffff" stroke-width="1.2" fill="none" opacity="0.35"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="clock">02:15</div>
+    <h1 data-brand>02.15yn</h1>
+    <p data-tagline>catatan tengah malam, dituliskan jadi cerita.</p>
+    <a class="btn" href="#cerita">Mulai baca →</a>
+  </div>
+</header>
+
+<section class="section" id="cerita">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Cerita</h2>
+    </div>
+    <div data-stories></div>
+  </div>
+</section>
+
+<section class="section about" id="tentang">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Tentang</h2>
+    </div>
+    <p data-about></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© <span data-brand>02.15yn</span></div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>renderHome();</script>
+</body>
+</html>

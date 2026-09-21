@@ -1,0 +1,25 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#cbb8f0"/>
+      <stop offset="100%" stop-color="#ff9fb4"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="32" cy="32" r="32" fill="url(#bg)"/>
+
+  <!-- crescent moon -->
+  <path d="M40 14
+           a20 20 0 1 0 0 36
+           a16 16 0 1 1 0 -36
+           Z" fill="#fffaf5"/>
+
+  <!-- sleepy closed eye -->
+  <path d="M25 34 q3 3 6 0" stroke="#4a4460" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+  <!-- small blush -->
+  <circle cx="22" cy="39" r="2.4" fill="#ff9fb4" opacity="0.55"/>
+
+  <!-- star -->
+  <path d="M50 16 l1.6 3.6 3.9 0.4 -2.9 2.7 0.8 3.9 -3.4 -2 -3.4 2 0.8 -3.9 -2.9 -2.7 3.9 -0.4 Z" fill="#ffffff"/>
+</svg>
